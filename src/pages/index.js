@@ -1,1 +1,1 @@
-export const App = () => "Pay U First";
+export const App = () => 'Pay U First'

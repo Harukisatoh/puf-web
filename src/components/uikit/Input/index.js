@@ -8,4 +8,6 @@ export const Input = styled('input')`
   border-radius: 200px;
   color: ${th.color('white')};
   padding: ${th.space(2)}px ${th.space(3)}px;
+
+  ${({ disabled }) => disabled && 'opacity: 0.5;'}
 `

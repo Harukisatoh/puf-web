@@ -15,8 +15,8 @@ const StyledButton = styled('button')`
   ${({ disabled }) => disabled && 'opacity: 0.5;'}
 `
 
-export const Button = ({ children, disabled, loading }) => (
-  <StyledButton disabled={disabled || loading}>
+export const Button = ({ children, disabled, loading, ...props }) => (
+  <StyledButton {...props} disabled={disabled || loading}>
     {loading ? <Spinner /> : children}
   </StyledButton>
 )

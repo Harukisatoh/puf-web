@@ -34,4 +34,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: inherit;
     outline: none;
   }
+
+  button {
+    font-size: inherit;
+  }
 `

@@ -6,7 +6,7 @@ import { config } from './config'
 
 export const Theme = ({ children }) => (
   <ThemeProvider theme={config}>
-    <GlobalStyle bg="raisinBlack" color="white" />
+    <GlobalStyle bg="raisinBlack" color="white" fontSize={3} />
     {children}
   </ThemeProvider>
 )

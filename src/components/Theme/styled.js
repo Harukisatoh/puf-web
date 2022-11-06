@@ -25,11 +25,19 @@ export const flexbox = props => {
 export const background = props =>
   props.bg && `background: ${props.theme.colors[props.bg] || props.bg};`
 
-export const color = props =>
-  props.color && `color: ${props.theme.colors[props.color] || props.color};`
+export const font = props => {
+  const color =
+    props.color && `color: ${props.theme.colors[props.color] || props.color};`
 
-export const fontSize = props =>
-  props.fontSize && `font-size: ${props.theme.fontSizes[props.fontSize]};`
+  const size =
+    Object.prototype.hasOwnProperty.call(props, 'fontSize') &&
+    `font-size: ${props.theme.fontSizes[props.fontSize] || props.fontSize}px;`
+
+  return `
+    ${color ? color : ''}
+    ${size ? size : ''}
+  `
+}
 
 export const margin = props => {
   const mt = props.mt ?? props.my ?? props.m ?? ''

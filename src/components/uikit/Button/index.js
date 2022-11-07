@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { th } from '~/components/Theme/styled'
+import { th, margin } from '~/components/Theme/styled'
 import { Spinner } from '~/components/uikit/Spinner'
 
 const StyledButton = styled('button')`
@@ -13,6 +13,7 @@ const StyledButton = styled('button')`
   outline: none;
 
   ${({ disabled }) => disabled && 'opacity: 0.5;'}
+  ${margin}
 `
 
 export const Button = ({ children, disabled, loading, ...props }) => (

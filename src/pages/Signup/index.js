@@ -1,9 +1,10 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Box, font } from '~/components'
+import { Box, font, Logo } from '~/components'
 
 import { Form } from './Form'
+import { ReactComponent as Ilustra } from './ilustra.svg'
 
 const Title = styled('h2')`
   ${font}
@@ -18,7 +19,10 @@ const CenteredBox = ({ children, ...props }) => (
 export const Signup = () => {
   return (
     <Box flex={1} flexbox>
-      <CenteredBox bg="black">Esquerdo</CenteredBox>
+      <CenteredBox bg="black">
+        <Logo />
+        <Ilustra />
+      </CenteredBox>
       <CenteredBox as="main">
         <Title textAlign="center">Cadastro</Title>
         <Form />

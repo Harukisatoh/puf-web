@@ -1,12 +1,12 @@
 import * as React from 'react'
-import axios from 'axios'
 import * as yup from 'yup'
 import { useFormik } from 'formik'
 import styled from 'styled-components'
+import { Link as RouterLink } from 'react-router-dom'
 
 import { Field, Box, Button, font, margin } from '~/components'
 
-const Link = styled('a')`
+const Link = styled(RouterLink)`
   text-decoration: none;
 
   ${font}
@@ -19,15 +19,7 @@ const validationSchema = yup.object().shape({
   password: yup.string().required('Digite uma senha'),
 })
 
-export const Form = () => {
-  const onSubmit = async () => {
-    try {
-      await axios.post('http://localhost:9901/users', values)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+export const Form = ({ onSubmit }) => {
   const {
     values,
     handleChange,
@@ -83,7 +75,7 @@ export const Form = () => {
           Registrar
         </Button>
 
-        <Link href="#" mt={1} fontSize={1} color="gray" fontWeight="bold">
+        <Link to="/" mt={1} fontSize={1} color="gray" fontWeight="bold">
           Já sou cadastrado!
         </Link>
       </Box>

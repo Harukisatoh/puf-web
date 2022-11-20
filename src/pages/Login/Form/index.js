@@ -2,10 +2,11 @@ import * as React from 'react'
 import * as yup from 'yup'
 import { useFormik } from 'formik'
 import styled from 'styled-components'
+import { Link as RouterLink } from 'react-router-dom'
 
 import { Field, Box, Button, font, margin } from '~/components'
 
-const Link = styled('a')`
+const Link = styled(RouterLink)`
   text-decoration: none;
 
   ${font}
@@ -64,7 +65,7 @@ export const Form = ({ onSubmit }) => {
 
         <Box mt={1} fontSize={1} color="gray">
           Não possui cadastro?{' '}
-          <Link href="#" mt={1} fontSize={1} color="gray" fontWeight="bold">
+          <Link to="/signup" mt={1} fontSize={1} color="gray" fontWeight="bold">
             Cadastre-se!
           </Link>
         </Box>

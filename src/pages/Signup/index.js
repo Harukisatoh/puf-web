@@ -1,7 +1,9 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 import { Box, font, Logo } from '~/components'
+import { useAuth } from '~/components/modules'
 
 import { Form } from './Form'
 import { ReactComponent as Ilustra } from './ilustra.svg'
@@ -17,6 +19,18 @@ const CenteredBox = ({ children, ...props }) => (
 )
 
 export const Signup = () => {
+  const { login: setAuth } = useAuth()
+
+  const onSubmit = async values => {
+    try {
+      const res = await axios.post('http://localhost:9901/users', values)
+
+      setAuth({ user: res.data })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <Box flex={1} flexbox>
       <CenteredBox bg="black">
@@ -25,7 +39,7 @@ export const Signup = () => {
       </CenteredBox>
       <CenteredBox as="main">
         <Title textAlign="center">Cadastro</Title>
-        <Form />
+        <Form onSubmit={onSubmit} />
       </CenteredBox>
     </Box>
   )

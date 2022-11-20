@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 import { Box, font, Logo } from '~/components'
+import { useAuth } from '~/components/modules'
 
 import { Form } from './Form'
 import { ReactComponent as Ilustra } from './ilustra.svg'
@@ -17,7 +18,9 @@ const CenteredBox = ({ children, ...props }) => (
   </Box>
 )
 
-export const Login = ({ onLogin }) => {
+export const Login = () => {
+  const { login: setAuth } = useAuth()
+
   const onSubmit = async values => {
     const { email, password } = values
 
@@ -29,7 +32,7 @@ export const Login = ({ onLogin }) => {
         },
       })
 
-      onLogin(res.data)
+      setAuth(res.data)
     } catch (error) {
       console.log(error)
     }
